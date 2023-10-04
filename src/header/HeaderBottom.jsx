@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import userimg from "../assets/img/user.png"
 
 
@@ -6,7 +6,7 @@ const HeaderBottom = () => {
     return (
         <div>
             <div className="flex items-center justify-between py-5 flex-col md:flex-row">
-                <div className="flex-1"></div>
+                <div className="flex-1 hidden lg:block"></div>
                 <nav className="flex-1">
                     <ul className="flex gap-5">
                         <li> <NavLink className="text-lg" to={'/'}> Home </NavLink> </li>
@@ -19,7 +19,7 @@ const HeaderBottom = () => {
                         <img className="w-10" src={userimg} alt="User Photo" />
                     </div>
                     <div>
-                        <button className="bg-[#403F3F] text-white py-2 px-7 rounded-sm text-base font-semibold"> Login </button>
+                        <Link to={'/login'}><button className="bg-[#403F3F] text-white py-2 px-7 rounded-sm text-base font-semibold"> Login </button></Link>
                     </div>
                 </div>
             </div>

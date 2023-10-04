@@ -1,6 +1,8 @@
+
 import Marquee from "react-fast-marquee";
 
 const HeaderMiddle = () => {
+
     return (
        <div>
             <div className="flex items-center bg-[#F3F3F3] py-4 px-5 rounded-md">

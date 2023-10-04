@@ -1,11 +1,28 @@
+import { createContext } from "react";
+import PropTypes from 'prop-types';
+import useGetPosts, { useGetCategoris } from "../hooks/hooks";
+
+export const allContext = createContext(null);
+
+const AllContext = ({ children }) => {
+
+    const posts = useGetPosts();
+    const categories = useGetCategoris()
 
 
-const AllContext = () => {
+
+    const authAndPosts = {posts, categories }
     return (
-        <div>
-            <h1>All context</h1>
-        </div>
+        <>
+            <allContext.Provider value={authAndPosts}>
+                {children}
+            </allContext.Provider>
+        </>
     );
 };
 
 export default AllContext;
+
+AllContext.propTypes = {
+    children: PropTypes.node
+}
