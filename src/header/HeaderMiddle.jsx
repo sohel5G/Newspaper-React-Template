@@ -1,7 +1,11 @@
 
 import Marquee from "react-fast-marquee";
+import useGetPosts from "../hooks/hooks";
+import { Link } from "react-router-dom";
 
 const HeaderMiddle = () => {
+
+    const posts = useGetPosts()
 
     return (
        <div>
@@ -11,7 +15,11 @@ const HeaderMiddle = () => {
                 </div>
                 <div>
                     <Marquee pauseOnHover="true" className="font-medium text-lg">
-                        I can be a React component, multiple React components, or just some text.  |   I can be a React component, multiple React components, or just some text.
+                       <div>
+                            {
+                                !!posts && posts.map(post => <Link to={`/post/${post._id}`} key={post._id}> {post.title}  ⇐⇑⇒  </Link>)
+                            }
+                       </div>
                     </Marquee>
                 </div>
             </div>
